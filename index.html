@@ -138,11 +138,11 @@
                     lat: 114.17906284332275,
                     lng: 22.33912053651135
                 },
-                scrollwheel: false,
+                scrollwheel: true,
                 zoom: 8
             });
 
-            map.data.loadGeoJson('map.geojson');
+            map.data.loadGeoJson('http://localhost/map.geojson');
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfm6e6an81szHQvAYBTTVMKkdms-TB2Mk&callback=initMap" async defer></script>
