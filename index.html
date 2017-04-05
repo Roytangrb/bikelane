@@ -5,12 +5,11 @@
     <script type="text/javascript" src="echarts.min.js"></script>
     <script src="xianggang.json"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
 
 <body>
     <div style="width: 1200px; height: 800" id="map"></div>
-    <div style="width: 1200px; height: 800" id="map-canvas"></div>
+    <div style="width: 1200px; height: 800" id="map2"></div>
 
     <script type="text/javascript">
         var myMap = echarts.init(document.getElementById('map'));
@@ -132,31 +131,20 @@
     </script>
 
     <script>
-        var map;
-
-        function initialize() {
-
-            //Initialise the map
-            var myLatLng = new google.maps.LatLng(53.231472, -0.539783);
-            map = new google.maps.Map(document.getElementById('map-canvas'), {
-                zoom: 13,
-                center: myLatLng,
+        function initMap() {
+            // Create a map object and specify the DOM element for display.
+            var map = new google.maps.Map(document.getElementById('map2'), {
+                center: {
+                    lat: -34.397,
+                    lng: 150.644
+                },
                 scrollwheel: false,
-                panControl: false,
-                zoomControl: false,
-                scaleControl: true,
-                disableDefaultUI: true
+                zoom: 8
             });
-
-            //Initialise base folder for icons
-            //var iconBase = '/static/images/icons/';
-
-            //Load the JSON to show places
-            map.data.loadGeoJson('test2.json');
-
         }
-        google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfm6e6an81szHQvAYBTTVMKkdms-TB2Mk&callback=initMap" async defer></script>
+</body>
 </body>
 
 </html>
