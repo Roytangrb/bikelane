@@ -131,19 +131,21 @@
     </script>
 
     <script>
-        function initMap() {
-            // Create a map object and specify the DOM element for display.
-            var map = new google.maps.Map(document.getElementById('map2'), {
-                center: {
-                    lat: 114.179,
-                    lng: 22.339
-                },
-                scrollwheel: true,
-                zoom: 8
-            });
+        $(function() {
+            function initMap() {
+                // Create a map object and specify the DOM element for display.
+                var map = new google.maps.Map(document.getElementById('map2'), {
+                    center: {
+                        lat: 114.179,
+                        lng: 22.339
+                    },
+                    scrollwheel: true,
+                    zoom: 8
+                });
 
-            map.data.loadGeoJson('map.geojson');
-        }
+                map.data.loadGeoJson('map.geojson');
+            }
+        });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfm6e6an81szHQvAYBTTVMKkdms-TB2Mk&callback=initMap" async defer></script>
 </body>
