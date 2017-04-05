@@ -1,8 +1,132 @@
 <html>
-  <head>
+
+<head>
     <title>bike lane</title>
-    
-  </head>
-  <body>
-  </body>
+    <script src="xianggang.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div style="width: 800px; height: 800" id="map"></div>
+
+    <script type="text/javascript">
+        var myMap = echarts.init(document.getElementById('map'));
+        var uploadedDataURL = "xianggang.json";
+
+        myMap.showLoading();
+
+        $.getJSON(uploadedDataURL, function(geoJson) {
+
+            myMap.hideLoading();
+
+            echarts.registerMap('HK', geoJson);
+
+            myMap.setOption(option = {
+                title: {
+                    text: 'Sports and Recreaton Facility Distribution in HK',
+                    subtext: 'Source: data.gov.hk',
+                    sublink: 'https://data.gov.hk/en/search/portal/sports'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}<br/>{c} Sports grounds and centres'
+                },
+                toolbox: {
+                    show: true,
+                    orient: 'vertical',
+                    left: 'right',
+                    top: 'center',
+                    feature: {
+                        dataView: {
+                            readOnly: false
+                        },
+                        restore: {},
+                        saveAsImage: {}
+                    }
+                },
+                visualMap: {
+                    min: 4,
+                    max: 10,
+                    text: ['High', 'Low'],
+                    realtime: false,
+                    calculable: true,
+                    color: ['orangered', 'yellow', 'lightskyblue']
+                },
+                series: [{
+                    name: 'Sports and Recreaton Facilities in HK',
+                    type: 'map',
+                    mapType: 'HK', // 自定义扩展图表类型
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true
+                            }
+                        },
+                        emphasis: {
+                            label: {
+                                show: true
+                            }
+                        }
+                    },
+                    data: [{
+                        name: "中西區",
+                        value: 6
+                    }, {
+                        name: "灣仔區",
+                        value: 5
+                    }, {
+                        name: '東區',
+                        value: 7
+                    }, {
+                        name: '南區',
+                        value: 7
+                    }, {
+                        name: '油尖旺區',
+                        value: 6
+                    }, {
+                        name: '深水埗區',
+                        value: 8
+                    }, {
+                        name: '九龍城區',
+                        value: 7
+                    }, {
+                        name: '黃大仙區',
+                        value: 8
+                    }, {
+                        name: '觀塘區',
+                        value: 9
+                    }, {
+                        name: '葵青區',
+                        value: 8
+                    }, {
+                        name: '荃灣區',
+                        value: 5
+                    }, {
+                        name: '屯門區',
+                        value: 7
+                    }, {
+                        name: '元朗區',
+                        value: 8
+                    }, {
+                        name: '北區',
+                        value: 7
+                    }, {
+                        name: '大埔區',
+                        value: 6
+                    }, {
+                        name: '沙田區',
+                        value: 9
+                    }, {
+                        name: '西貢區',
+                        value: 9
+                    }, {
+                        name: '離島區',
+                        value: 6
+                    }],
+                }]
+            });
+        });
+    </script>
+</body>
+
 </html>
