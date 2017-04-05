@@ -135,14 +135,14 @@
             // Create a map object and specify the DOM element for display.
             var map = new google.maps.Map(document.getElementById('map2'), {
                 center: {
-                    lat: 114.17906284332275,
-                    lng: 22.33912053651135
+                    lat: -34.397,
+                    lng: 150.644
                 },
                 scrollwheel: true,
                 zoom: 8
             });
 
-            //map.data.loadGeoJson('http://localhost/map.geojson');
+            map.data.loadGeoJson('http://localhost/map.geojson');
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfm6e6an81szHQvAYBTTVMKkdms-TB2Mk&callback=initMap" async defer></script>
