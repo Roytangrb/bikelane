@@ -143,6 +143,11 @@
 
             map.data.loadGeoJson('map.geojson');
             map.data.loadGeoJson('map2.geojson');
+
+            map.data.setStyle({
+                strokeColor: 'red',
+                strokeWeight: 3
+            });
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfm6e6an81szHQvAYBTTVMKkdms-TB2Mk&callback=initMap" async defer></script>
