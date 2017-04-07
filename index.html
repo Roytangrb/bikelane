@@ -2,14 +2,14 @@
 
 <head>
     <title>bike lane</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="echarts.min.js"></script>
     <script src="xianggang.json"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div style="width: 1200px; height: 800" id="map"></div>
-    <div style="width: 1200px; height: 800" id="map2"></div>
+    <div style="width: 1000px; height: 700" id="map2"></div>
 
     <script type="text/javascript">
         var myMap = echarts.init(document.getElementById('map'));
@@ -131,21 +131,19 @@
     </script>
 
     <script>
-        $(function() {
-            function initMap() {
-                // Create a map object and specify the DOM element for display.
-                var map = new google.maps.Map(document.getElementById('map2'), {
-                    center: {
-                        lat: 114.179,
-                        lng: 22.339
-                    },
-                    scrollwheel: true,
-                    zoom: 8
-                });
+        function initMap() {
+            // Create a map object and specify the DOM element for display.
+            var map = new google.maps.Map(document.getElementById('map2'), {
+                center: {
+                    lat: 22.339,
+                    lng: 114.179
+                },
+                scrollwheel: true,
+                zoom: 11
+            });
 
-                map.data.loadGeoJson('map.geojson');
-            }
-        });
+            map.data.loadGeoJson('map.geojson');
+        }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfm6e6an81szHQvAYBTTVMKkdms-TB2Mk&callback=initMap" async defer></script>
 </body>
