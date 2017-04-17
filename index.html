@@ -172,11 +172,11 @@
         map.addLayer(layer);
 
         //San Mun Jai geojson layer
-        //var jsonSan = $.getJSON("SanMunJai.geojson");
-        //L.geoJSON(jsonSan).addTo(map);
-
         var geojsonSan = new L.GeoJSON.AJAX("SanMunJai.geojson");
         geojsonSan.addTo(map);
+
+        var markerSan = new L.marker([114.2114531993866, 22.457449331564764])
+        markerSan.addTo(map);
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfm6e6an81szHQvAYBTTVMKkdms-TB2Mk&callback=initMap" async defer></script>
 </body>
