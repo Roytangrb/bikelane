@@ -4,11 +4,12 @@
     <title>bike lane</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="echarts.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 </head>
 
 <body>
-    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=114.18794631958009%2C22.44538200991547%2C114.21712875366212%2C22.467671524165645&amp;layer=cyclemap"
-        style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=15/22.4565/114.2025&amp;layers=C">查看更大的地圖</a></small>
+    <div style="width: 1200px; height: 800" id="leaflet"></div>
     <div style="width: 1200px; height: 800" id="map"></div>
     <div style="width: 1000px; height: 700" id="map2"></div>
 
@@ -151,6 +152,22 @@
                 strokeWeight: 3
             });
         }
+    </script>
+    <script>
+        // initialize the map on the "map" div with a given center and zoom
+        var map = new L.Map('leaflet', {
+            center: new L.LatLng(22.339, 114.179),
+            zoom: 12
+        });
+
+        // create a new tile layer
+        var tileUrl = 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=8acedab11683401eb09f0f3c0b75c264',
+            layer = new L.TileLayer(tileUrl, {
+                maxZoom: 18
+            });
+
+        // add the layer to the map
+        map.addLayer(layer);
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfm6e6an81szHQvAYBTTVMKkdms-TB2Mk&callback=initMap" async defer></script>
 </body>
