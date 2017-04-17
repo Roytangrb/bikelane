@@ -6,7 +6,7 @@
     <script type="text/javascript" src="echarts.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script type="text/javascript" src="SanMunJai.geojson"></script>
+    <script src="/js/leaflet-0.7.2/leaflet.ajax.min.js"></script>
 </head>
 
 <body>
@@ -172,8 +172,11 @@
         map.addLayer(layer);
 
         //San Mun Jai geojson layer
-        var jsonSan = $.getJSON("SanMunJai.geojson");
-        L.geoJSON(jsonSan).addTo(map);
+        //var jsonSan = $.getJSON("SanMunJai.geojson");
+        //L.geoJSON(jsonSan).addTo(map);
+
+        var geojsonSan = new L.GeoJSON.AJAX("SanMunJai.geojson");
+        geojsonSan.addTo(map);
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfm6e6an81szHQvAYBTTVMKkdms-TB2Mk&callback=initMap" async defer></script>
 </body>
